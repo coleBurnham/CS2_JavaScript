@@ -105,10 +105,10 @@ function array84($array) {
 /* ----------------------------------------------------------------------
 8.6 Write a function to return the number of “odd” numbers in an array. (DONE)
  ---------------------------------------------------------------------- */
- function array86(number_array) {
-    var odd_number_count = 0;
-
-    for (var i = 0; i < number_array.length; i++) {
+ function array86($number_array) {
+    $odd_number_count = 0;
+	
+    for ($i = 0; $i < count($number_array); $i++) {
     
         // pseudo-code
         // if the number from array is even, 
@@ -116,23 +116,58 @@ function array84($array) {
         // if is is NOT even, 
         // then ignore the number
     
-        var temp_number = number_array[i];
+        $temp_number = $number_array[$i];
          
-         if (temp_number % 2 ==1) {
-            odd_number_count = odd_number_count+1;
+         if ($temp_number % 2 ==1) {
+            $odd_number_count = $odd_number_count+1;
         }
     }
 
-    return odd_number_count; 
+    return $odd_number_count; 
+ }
+
+ function banana(){
+	 echo "Banana";
  }
    
-   var array_86 = [2,3,44, 97, 46, 48, 87, 89, 65, 46, 46, 2, 4];
-   document.write("<br> Assignment 8.6");
-   document.write("<br> array_86 = " + array_86);
-   document.write("<br> Number of odd numbers in array_86 =  " + array86(array_86));
-   document.write("<br>-------------------");
+   $array_86 = [2,3,44, 97, 46, 48, 87, 89, 65, 46, 46, 2, 4];
+   echo ("<br> Assignment 8.6");
+   echo ("<br> array_86 = " + array_86);
+   echo ("<br> Number of odd numbers in array_86 =  " + array86(array_86));
+   echo ("<br>-------------------");
    
+/*
+8.7 Reverse an inout array.
+*/
+function array87($number_array) {
+	$reverse_array = array_reverse($number_array,true);
+	print_r($reverse_array);
+}
 
+$input_array=[1,2,3,4,5,6,7,8,9,0 ];
+
+echo "<br>"."Reverse Array: ".print_r($input_array);
+
+$reverse_array = array87($input_array);
+
+/*
+8.8 Product				    
+ */
+					    
+function product($numbers){
+    $product = 1;
+    
+    foreach($numbers as $number){
+        $product = $product * $number;
+    }
+    
+    return $product;
+}
+
+$numbers = array(1, 2, 3, 4, 5);
+
+echo product($numbers);
+echo "<br>";				    
    
 /* ----------------------------------------------------------------------
 8.11 Write a function that returns union of two arrays. The combined array should not contain any duplicates.
@@ -165,6 +200,33 @@ For example, passing two arrays [4,5,6] and [3,4,5] should return  [3,d4,5,6]
    document.write("<br> Number of odd numbers in array_86 =  " + array86(array_86));
    document.write("<br>-------------------");
    
+   /* ----------------------------------------------------------------------
+8.12 A function that adds Rover's favorite fruits to his array. Rover only likes fruits that start
+the letter 'a'. In this case only 'apple' is the acceptable value.
+ ---------------------------------------------------------------------- */
+
+ $fruits = array("apple", "banana", "kiwi", "mango", "blueberry");
+    $roversFavorites = array();
+    
+    for($i = 0; $i < sizeof($fruits); $i++){
+        if($fruits[$i][0] == "a"){
+            array_push($roversFavorites,$fruits[$i]);
+        }
+    }
+
+    for($i = 0; $i < sizeof($roversFavorites); $i++){
+        echo $roversFavorites[$i];
+    }
+
+ /* ----------------------------------------------------------------------
+8.14 Function to remove all of the values from Rover's array of favorite fruits. Though a simple function
+I thought it was pretty useful.
+ ---------------------------------------------------------------------- */
+
+ for ($i = 0; $i < count($roversFavorites); $i++) { 
+     unset($roversFavorites[$i]); 
+}
+
 
 /* ----------------------------------------------------------------------
 8.16 Write a function that finds an element in an array.  If the input element is found in the array, the function returns “true”. If the element is not found, it returns “false”
@@ -187,6 +249,27 @@ var input_item = 897;
 var is_item_found = array816(input_array, input_item);
 document.write("<br>"+"is the element present on the array?="+ is_item_found);
 document.write("<br>...............");
+
+/*
+8.18 Factorial
+*/
+
+function factorial($n){
+    $factorial = 1;
+    
+    if($n == 0 || $n == 1)
+        return 1;
+    
+    for($i = 2; $i <= $n; $i++){
+        $factorial = $factorial * $i;
+    }
+    
+    return $factorial;
+}
+
+$n = 4;
+
+echo factorial($n);
 
 /* ----------------------------------------------------------------------
 8.21 Write a function that creates N elements in array. 
